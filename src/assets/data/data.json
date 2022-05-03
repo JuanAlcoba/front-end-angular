@@ -1,0 +1,23 @@
+{
+    "nombre": "Juan Cruz Alcoba",
+    "cargo": "Diseño Web Full-Stack",
+    "acerca": "Acerca deeee",
+    "experiencia": [{
+        "cargo": "algun cargo",
+        "empresa": "alguna empresa",
+        "year": "since 0000"
+    }],
+
+    "educacion": [{
+        "curso": "Argentina Programa",
+        "ente": "Argentina Programa",
+        "year": "feb. 2022-Actualidad"
+    },
+    {
+        "curso": "ARG. Programa",
+        "ente": "Mumuki",
+        "year": "Octubre - Noviembre 2021"
+    }
+    ]
+
+}

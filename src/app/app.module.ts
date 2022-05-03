@@ -11,6 +11,9 @@ import { HabilidadesComponent } from './habilidades/habilidades.component';
 import { ProyectosComponent } from './proyectos/proyectos.component';
 import { ContactameComponent } from './contactame/contactame.component';
 import { LogInComponent } from './log-in/log-in.component';
+import { PortfolioService } from './portfolio.service';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -26,9 +29,11 @@ import { LogInComponent } from './log-in/log-in.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    HttpClientModule,
+    AppRoutingModule,
+    
   ],
-  providers: [],
+  providers: [PortfolioService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
