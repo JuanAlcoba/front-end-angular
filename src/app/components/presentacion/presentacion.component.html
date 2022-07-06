@@ -13,8 +13,8 @@
           <img src="assets\fotoperfil2.png" class ="profile-img"  alt="">
         </div>
         <div class="profile-text">
-          <h4> Juan Cruz Alcoba</h4>
-          <h6> Diseño web Full Stack Jr.</h6>
+          <h4>{{persona.nombre}} {{persona.apellido}}</h4>
+          <h6> {{persona.titulo}}</h6>
         </div>
     </div>  
     <div class="col-8"> 
@@ -25,9 +25,7 @@
                   <button type="button" class="btn btn-dark"><i class="bi bi-pencil-square" style="font-size: 1rem; color: #0D6EFD;"></i></button>
                 </div>
             </div>
-            <div class="text">  Emprendiendo camino en el desarrollo de web/apps actualmente realizando el curso de programador web full-stack de Argentina Programa.  
-              Estoy buscando mi primer empleo como trainee para poder aplicar todo lo que voy aprendiendo en un entorno de trabajo real. Soy una persona muy curiosa y dedicada, dispuesto a seguirme formando constantemente y dar lo mejor de mí!  
-            </div>
+            <div class="text"> {{persona.acerca}} </div>
         </div>
     </div>    
     </div>
