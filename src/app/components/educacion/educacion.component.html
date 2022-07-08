@@ -6,29 +6,29 @@
           <div class="section-title mb-4">
               <h2> Educación</h2>
           </div>
-    
+                
           <span class="section-title mb-3 d-flex justify-content-between">
               <h3> Cursos y Certificaciones </h3>
               <div class="buttons">
-                  <button type="button" class="btn btn-dark"><i class="bi bi-plus-circle" style="font-size: 1rem; color: #0D6EFD;"></i></button>
+                  <button type="button" class="btn btn-dark"><i class="bi bi-plus-circle" style="font-size: 1rem; color: #0D6EFD;" ></i></button>
               </div>
           </span>
           
-          <li *ngFor="let educacion of educacionList">
+          <div *ngFor="let educacion of educacionList">
             <div class="item">
                 <div class="item-title d-flex justify-content-between">
-                    <h6><b> {{educacion.curso}} </b> </h6>
+                    <h6><b> {{educacion.titulo}} </b> </h6>
                     <div class="buttons">
-                        <button type="button" class="btn btn-dark"><i class="bi bi-pencil-square"
+                        <button (click)="Editar(educacion)" type="button" class="btn btn-dark"><i class="bi bi-pencil-square"
                                 style="font-size: 1rem; color: #0D6EFD;"></i></button>
                         <button type="button" class="btn btn-dark"><i class="bi bi-trash"
                                 style="font-size: 1rem; color: #0D6EFD;"></i></button>
                     </div>
                 </div>
                 <h6> {{educacion.ente}} </h6>
-                <p> <em> {{educacion.year}} </em></p>
+                <p> <em> {{educacion.fechaIni}} {{educacion.fechaFin}}</em></p>
             </div>
-          </li>
+        </div>
           
     
           <span class="section-title mb-3 d-flex justify-content-between">

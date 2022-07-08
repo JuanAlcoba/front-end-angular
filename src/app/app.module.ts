@@ -13,6 +13,10 @@ import { ContactameComponent } from './components/contactame/contactame.componen
 import { LogInComponent } from './components/log-in/log-in.component';
 import { PortfolioService } from './portfolio.service';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { CrearComponent } from './components/educacion/crear/crear.component';
+import { EditarComponent } from './components/educacion/editar/editar.component';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -25,12 +29,17 @@ import { HttpClientModule } from '@angular/common/http';
     HabilidadesComponent,
     ProyectosComponent,
     ContactameComponent,
-    LogInComponent
+    LogInComponent,
+    CrearComponent,
+    EditarComponent
+    
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    RouterModule,
+    FormsModule
     
   ],
   providers: [PortfolioService],

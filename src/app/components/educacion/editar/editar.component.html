@@ -1,0 +1,22 @@
+<div class="card-body">
+    <h1 style="color: red;">EDITAR!</h1>
+    <form action="">
+        <div class="form-group">
+            <label for="" > Titulo</label>
+            <input [(ngModel)]="educacion.titulo" [ngModelOptions]="{standalone: true}" type="text" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="" >Ente</label>
+            <input [(ngModel)]="educacion.ente" [ngModelOptions]="{standalone: true}" type="text" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="" > Fecha Inicio</label>
+            <input [(ngModel)]="educacion.fechaIni" [ngModelOptions]="{standalone: true}" type="text" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="" > Fecha Fin</label>
+            <input [(ngModel)]="educacion.fechaFin" [ngModelOptions]="{standalone: true}" type="text" class="form-control">
+        </div>
+        <button type="button" class="btn btn-dark"><i class="bi bi-plus-circle" style="font-size: 1rem; color: #0D6EFD;" (click)="Actualizar(educacion)"></i></button>
+    </form>
+  </div>

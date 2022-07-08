@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { PortfolioService } from 'src/app/portfolio.service';
+import { Router } from '@angular/router';
+import { Educacion } from 'src/app/model/educacion.model';
+import { EducacionService } from 'src/app/service/educacion.service';
 
 
 @Component({
@@ -9,15 +11,24 @@ import { PortfolioService } from 'src/app/portfolio.service';
 })
 export class EducacionComponent implements OnInit {
 
-  educacionList:any;
-
-  constructor(private datosPortfolio:PortfolioService) { }
+  public educacionList: any;
+  
+  constructor(private datosEducacion: EducacionService, private router: Router) { }
 
   ngOnInit(): void {
-    this.datosPortfolio.obtenerDatos().subscribe(data =>{
+    this.getEducacion();
+  }
+
+  public getEducacion(){
+    this.datosEducacion.getEducacion().subscribe(data => {
       console.log(data);
-      this.educacionList=data.educacion;
+      this.educacionList = data
     });
+  }
+  
+  public Editar(educacion: Educacion){
+    localStorage.setItem("id",educacion.id.toString());
+    this.router.navigate(["editar"]);
   }
 
 }
