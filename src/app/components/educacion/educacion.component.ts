@@ -12,6 +12,7 @@ import { EducacionService } from 'src/app/service/educacion.service';
 export class EducacionComponent implements OnInit {
 
   public educacionList: any;
+  public educacionArray: Educacion[] ;
   
   constructor(private datosEducacion: EducacionService, private router: Router) { }
 
@@ -26,9 +27,24 @@ export class EducacionComponent implements OnInit {
     });
   }
   
+  public Crear(){
+    this.router.navigate(["crear"]);
+  }
+
   public Editar(educacion: Educacion){
     localStorage.setItem("id",educacion.id.toString());
     this.router.navigate(["editar"]);
+  }
+
+  public EliminarEducacion(educacion: Educacion) {
+    this.datosEducacion.deleteEducacion(educacion).subscribe(data => {
+      console.log(data);
+      this.educacionList = this.educacionList.filter((p: Educacion) =>{
+        p !== educacion;
+        console.log(p);
+      });
+      alert("Educacion eliminada Correctamente!");
+    });
   }
 
 }

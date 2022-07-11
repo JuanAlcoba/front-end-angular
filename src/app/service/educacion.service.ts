@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Educacion } from '../model/educacion.model';
-import { Persona } from '../model/persona.model';
+
 
 @Injectable({
   providedIn: 'root'
@@ -29,7 +29,11 @@ export class EducacionService {
     return this.http.put<Educacion>(this.URL+"editar/"+educacion.id,educacion)
   }
 
-  public deleteEducacion(educacion:Educacion){
-    return this.http.delete<Educacion>(this.URL+"borrar/"+educacion.id);
+  // public deleteEducacion(id:any) {
+  //   return this.http.delete<Educacion>(this.URL + 'eliminar/' +id);
+  // }
+
+  public deleteEducacion(educacion: Educacion) {
+    return this.http.delete<Educacion>(this.URL + 'eliminar/' +educacion.id);
   }
 }

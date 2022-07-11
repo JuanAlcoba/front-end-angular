@@ -16,9 +16,10 @@ export class CrearComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public GuardarEducacion(){
-    this.datosEducacion.createEducacion(this.educacionList)
+  public GuardarEducacion(educacion:Educacion){
+    this.datosEducacion.createEducacion(educacion)
     .subscribe(data=>{
+      this.educacionList = data;
       alert("Se Agrego con Exito...!!!");
       this.router.navigate([""]);
     })
