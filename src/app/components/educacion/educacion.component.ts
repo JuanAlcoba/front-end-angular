@@ -44,6 +44,7 @@ export class EducacionComponent implements OnInit {
         console.log(p);
       });
       alert("Educacion eliminada Correctamente!");
+      this.ngOnInit();
     });
   }
 

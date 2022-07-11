@@ -17,6 +17,7 @@ import { FormsModule } from '@angular/forms';
 import { CrearComponent } from './components/educacion/crear/crear.component';
 import { EditarComponent } from './components/educacion/editar/editar.component';
 import { RouterModule } from '@angular/router';
+import { HomeComponent } from './components/home/home.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { RouterModule } from '@angular/router';
     ContactameComponent,
     LogInComponent,
     CrearComponent,
-    EditarComponent
+    EditarComponent,
+    HomeComponent
     
   ],
   imports: [
