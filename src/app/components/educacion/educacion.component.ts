@@ -12,7 +12,7 @@ import { EducacionService } from 'src/app/service/educacion.service';
 export class EducacionComponent implements OnInit {
 
   public educacionList: any;
-  public educacionArray: Educacion[] ;
+  
   
   constructor(private datosEducacion: EducacionService, private router: Router) { }
 

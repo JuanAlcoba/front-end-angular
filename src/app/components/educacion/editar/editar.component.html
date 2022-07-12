@@ -1,22 +1,32 @@
-<div class="card-body">
-    <h1 style="color: red;">EDITAR!</h1>
-    <form action="">
-        <div class="form-group">
-            <label for="" > Titulo</label>
-            <input [(ngModel)]="educacion.titulo" [ngModelOptions]="{standalone: true}" type="text" class="form-control">
+
+<div class="row justify-content-center">
+    <div class="col-sm-5">
+        <div class="card-body text-light">
+        <span class="section-title mb-3 d-flex justify-content-between">
+            <h3> Editar curso </h3>
+        </span>
+            
+        <form action="" class="">
+            <div class="form-group">
+                <label for="" > Titulo</label>
+                <input [(ngModel)]="educacion.titulo" [ngModelOptions]="{standalone: true}" type="text" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="" >Ente</label>
+                <input [(ngModel)]="educacion.ente" [ngModelOptions]="{standalone: true}" type="text" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="" > Fecha Inicio</label>
+                <input [(ngModel)]="educacion.fechaIni" [ngModelOptions]="{standalone: true}" type="text" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="" > Fecha Fin</label>
+                <input [(ngModel)]="educacion.fechaFin" [ngModelOptions]="{standalone: true}" type="text" class="form-control">
+            </div>
+            <br>
+            <button (click)="Actualizar(educacion)" type="button" class="btn btn-primary"> Actualizar </button>
+            <button [routerLink]="['']" type="button" class="btn btn-primary"> Volver </button>
+        </form>
         </div>
-        <div class="form-group">
-            <label for="" >Ente</label>
-            <input [(ngModel)]="educacion.ente" [ngModelOptions]="{standalone: true}" type="text" class="form-control">
-        </div>
-        <div class="form-group">
-            <label for="" > Fecha Inicio</label>
-            <input [(ngModel)]="educacion.fechaIni" [ngModelOptions]="{standalone: true}" type="text" class="form-control">
-        </div>
-        <div class="form-group">
-            <label for="" > Fecha Fin</label>
-            <input [(ngModel)]="educacion.fechaFin" [ngModelOptions]="{standalone: true}" type="text" class="form-control">
-        </div>
-        <button type="button" class="btn btn-dark"><i class="bi bi-plus-circle" style="font-size: 1rem; color: #0D6EFD;" (click)="Actualizar(educacion)"></i></button>
-    </form>
-  </div>
+    </div>
+</div>

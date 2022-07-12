@@ -1,22 +1,33 @@
-<div class="card-body">
-    <h1 style="color: red;">CREAR!</h1>
-    <form action="">
-        <div class="form-group">
-            <label for="" > Titulo</label>
-            <input [(ngModel)]="educacionList.titulo" [ngModelOptions]="{standalone: true}" type="text" class="form-control">
+<div class="row justify-content-center">
+    <div class="col-sm-5">
+
+        <div class="card-body text-light">
+            <span class="section-title mb-3 d-flex justify-content-between">
+                <h3> Nuevo curso </h3>
+            </span>
+            <form action="">
+                <div class="form-group">
+                    <label for="" > Titulo</label>
+                    <input [(ngModel)]="educacionList.titulo" [ngModelOptions]="{standalone: true}" type="text" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="" >Ente</label>
+                    <input [(ngModel)]="educacionList.ente" [ngModelOptions]="{standalone: true}" type="text" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="" > Fecha Inicio</label>
+                    <input [(ngModel)]="educacionList.fechaIni" [ngModelOptions]="{standalone: true}" type="text" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="" > Fecha Fin</label>
+                    <input [(ngModel)]="educacionList.fechaFin" [ngModelOptions]="{standalone: true}" type="text" class="form-control">
+                </div>
+                <br>
+                <div class="buttons">
+                    <button (click)="GuardarEducacion(educacionList)" type="button" class="btn btn-primary"> Añadir </button>
+                    <button [routerLink]="['']" type="button" class="btn btn-primary"> Volver </button>
+                </div>
+            </form>
         </div>
-        <div class="form-group">
-            <label for="" >Ente</label>
-            <input [(ngModel)]="educacionList.ente" [ngModelOptions]="{standalone: true}" type="text" class="form-control">
-        </div>
-        <div class="form-group">
-            <label for="" > Fecha Inicio</label>
-            <input [(ngModel)]="educacionList.fechaIni" [ngModelOptions]="{standalone: true}" type="text" class="form-control">
-        </div>
-        <div class="form-group">
-            <label for="" > Fecha Fin</label>
-            <input [(ngModel)]="educacionList.fechaFin" [ngModelOptions]="{standalone: true}" type="text" class="form-control">
-        </div>
-        <button type="button" class="btn btn-dark"><i class="bi bi-plus-circle" style="font-size: 1rem; color: #0D6EFD;" (click)="GuardarEducacion(educacionList)"></i></button>
-    </form>
-  </div>
+    </div>
+</div>
