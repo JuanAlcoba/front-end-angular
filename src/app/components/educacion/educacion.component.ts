@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Educacion } from 'src/app/model/educacion.model';
 import { EducacionService } from 'src/app/service/educacion.service';
+import { TokenService } from 'src/app/service/token.service';
 
 
 @Component({
@@ -12,12 +13,24 @@ import { EducacionService } from 'src/app/service/educacion.service';
 export class EducacionComponent implements OnInit {
 
   public educacionList: any;
+  public roles: string[];
+  public isAdmin = false;
+
   
-  
-  constructor(private datosEducacion: EducacionService, private router: Router) { }
+  constructor(
+    private datosEducacion: EducacionService,
+    private router: Router,
+    private tokenService: TokenService,
+    ) { }
 
   ngOnInit(): void {
     this.getEducacion();
+    this.roles= this.tokenService.getAuthorities();
+    this.roles.forEach( rol => {
+      if(rol === 'ROLE_ADMIN'){
+        this.isAdmin= true;
+      }
+    })
   }
 
   public getEducacion(){

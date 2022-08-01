@@ -5,7 +5,7 @@ import { RegistroComponent } from './components/auth/registro.component';
 import { CrearComponent } from './components/educacion/crear/crear.component';
 import { EditarComponent } from './components/educacion/editar/editar.component';
 import { HomeComponent } from './components/home/home.component';
-
+import { ProdGuardService as guard} from './components/guards/prod-guard.service';
 
 
 const routes: Routes = [
@@ -13,9 +13,9 @@ const routes: Routes = [
   {path:'home', component:HomeComponent},
   {path:'login', component:LoginComponent},
   {path:'registro', component:RegistroComponent},
-  {path:'editar', component:EditarComponent},
-  {path:'crear', component:CrearComponent},
- 
+  {path:'editar', component:EditarComponent, canActivate: [guard], data: {expectedRol: ['admin']}},
+  {path:'crear', component:CrearComponent, canActivate: [guard], data: {expectedRol: ['admin']}},
+  
   
 ];
 
