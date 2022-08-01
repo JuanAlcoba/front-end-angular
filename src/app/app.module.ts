@@ -9,8 +9,6 @@ import { ExperienciaComponent } from './components/experiencia/experiencia.compo
 import { EducacionComponent } from './components/educacion/educacion.component';
 import { HabilidadesComponent } from './components/habilidades/habilidades.component';
 import { ProyectosComponent } from './components/proyectos/proyectos.component';
-import { ContactameComponent } from './components/contactame/contactame.component';
-import { LogInComponent } from './components/log-in/log-in.component';
 import { PortfolioService } from './portfolio.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
@@ -18,6 +16,12 @@ import { CrearComponent } from './components/educacion/crear/crear.component';
 import { EditarComponent } from './components/educacion/editar/editar.component';
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/auth/login.component';
+import { RegistroComponent } from './components/auth/registro.component';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { interceptorProvider } from './components/interceptors/prod-interceptor.service';
+
 
 
 @NgModule({
@@ -29,11 +33,13 @@ import { HomeComponent } from './components/home/home.component';
     EducacionComponent,
     HabilidadesComponent,
     ProyectosComponent,
-    ContactameComponent,
-    LogInComponent,
+    LoginComponent,
     CrearComponent,
     EditarComponent,
-    HomeComponent
+    HomeComponent,
+    LoginComponent,
+    RegistroComponent,
+    
     
   ],
   imports: [
@@ -41,10 +47,12 @@ import { HomeComponent } from './components/home/home.component';
     HttpClientModule,
     AppRoutingModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
     
   ],
-  providers: [PortfolioService],
+  providers: [PortfolioService, interceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,28 @@
+<app-nav></app-nav>
+
+<div class="container mt-5">
+
+    <div class="text-center text-light" *ngIf="isLogged; else loggedOut">
+        <h2>Ya haz Iniciado sesión</h2>
+    </div>
+
+    <ng-template #loggedOut>
+        <div class="container d-flex justify-content-center">
+            <div class="card">
+                <div class="card-header"></div>
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" routerLink="/login">Iniciar Sesión</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" routerLink="/registro">Crear Cuenta</a>
+                    </li>
+                </ul>
+                <div class="card-body">
+                    
+                </div>
+            </div>
+        </div>
+    </ng-template>
+    
+</div>

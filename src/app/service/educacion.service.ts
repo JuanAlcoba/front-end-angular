@@ -29,10 +29,6 @@ export class EducacionService {
     return this.http.put<Educacion>(this.URL+"editar/"+educacion.id,educacion)
   }
 
-  // public deleteEducacion(id:any) {
-  //   return this.http.delete<Educacion>(this.URL + 'eliminar/' +id);
-  // }
-
   public deleteEducacion(educacion: Educacion) {
     return this.http.delete<Educacion>(this.URL + 'eliminar/' +educacion.id);
   }
