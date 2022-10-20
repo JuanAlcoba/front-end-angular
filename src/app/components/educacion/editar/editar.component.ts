@@ -10,7 +10,7 @@ import { EducacionService } from 'src/app/service/educacion.service';
 })
 export class EditarComponent implements OnInit {
 
-  educacion: Educacion = new Educacion("","","","");
+  educacion: any;
 
   constructor(private datosEducacion: EducacionService, private router: Router) { }
 

@@ -21,6 +21,9 @@ import { RegistroComponent } from './components/auth/registro.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { interceptorProvider } from './components/interceptors/prod-interceptor.service';
+import { AlifeFileToBase64Module } from 'alife-file-to-base64';
+import { CrearPerComponent } from './components/presentacion/crear-per/crear-per.component';
+import { EditarPerComponent } from './components/presentacion/editar-per/editar-per.component';
 
 
 
@@ -39,6 +42,10 @@ import { interceptorProvider } from './components/interceptors/prod-interceptor.
     HomeComponent,
     LoginComponent,
     RegistroComponent,
+    CrearPerComponent,
+    EditarPerComponent,
+    
+    
     
     
   ],
@@ -49,7 +56,8 @@ import { interceptorProvider } from './components/interceptors/prod-interceptor.
     RouterModule,
     FormsModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    AlifeFileToBase64Module
     
   ],
   providers: [PortfolioService, interceptorProvider],

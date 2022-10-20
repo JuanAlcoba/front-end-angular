@@ -1,7 +1,13 @@
 <!-- NAV -->
 <header class="container ">
     <nav class="navbar fixed-top py-0 navbar-expand-sm navbar-dark bg-dark bg-gradient border-3 border-bottom border-primary" >
-        <a href="#" class="navbar-brand ">Juan Cruz Alcoba </a>
+        
+        
+        <div *ngFor="let persona of persona">
+        <a href="#" class="navbar-brand ">{{persona.nombre}} {{persona.apellido}}</a>
+        </div>
+
+
         <div class="toggle-button">
             <button type="button " 
                 class="navbar-toggler"  

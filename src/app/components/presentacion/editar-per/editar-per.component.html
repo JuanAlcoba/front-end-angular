@@ -1,0 +1,48 @@
+<div class="row justify-content-center">
+    <div class="col-sm-5">
+        <div class="card-body text-light">
+        <span class="section-title mb-3 d-flex justify-content-between">
+            <h3> Editar Presentación </h3>
+        </span>
+            
+        <form action="" class="">
+            <div class="form-group">
+                <label for="acerca" > Presentación</label>
+                <input [(ngModel)]="persona.acerca"  [ngModelOptions]="{standalone: true}" type="text" class="form-control">
+                
+            </div>
+            <div class="form-group">
+                <label for="" >Nombre</label>
+                <input [(ngModel)]="persona.nombre" [ngModelOptions]="{standalone: true}" type="text" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="" > Apellido</label>
+                <input [(ngModel)]="persona.apellido" [ngModelOptions]="{standalone: true}" type="text" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="" > Título</label>
+                <input [(ngModel)]="persona.titulo" [ngModelOptions]="{standalone: true}" type="text" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="">Img:</label>
+                <input type="file" accept="image/*" alife-file-to-base64
+                  (onFileChanged)="obtener($event)" name="img" class="form-control">
+                  <img src="{{persona.img}}" height="100px"> 
+              </div>
+            
+            <div class="form-group">
+                <label for="banner">Banner:</label>
+                <input type="file" accept="image/*" alife-file-to-base64
+                  (onFileChanged)="obtener2($event)" name="banner" class="form-control">
+                  <img src="{{persona.banner}}" height="100px"> 
+            </div>
+              
+     
+            <br>
+            <button (click)="Actualizar(persona)" type="button" class="btn btn-primary"> Actualizar </button>
+            <button [routerLink]="['']" type="button" class="btn btn-primary"> Volver </button>
+        </form>
+        </div>
+    </div>
+</div>

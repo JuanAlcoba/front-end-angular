@@ -1,37 +1,40 @@
 <!-- Presentación-->
+<div *ngFor="let persona of persona">
 
-<div class="container hd text-light">
+  <div class="container hd text-light">
     <div class="row">
       <div class="col px-0"> 
         <!-- <div class="bg-image">
-
+          
         </div>     -->
         <!-- <button type="button" class="btn btn-dark"><i class="bi bi-pencil-square" style="font-size: 1rem; color: #0D6EFD;"></i></button> -->
-        <img src="assets\wp2.jpg" class ="img-fluid" max-width="60%"  alt="">           
+        <img src="{{persona.banner}}" class ="img-fluid" max-width="60%"  alt="">           
       </div>   
     </div>
     
     <div id="SobreMi" class="row " >
-    <div class="col-4">
+      <div class="col-4">
         <div class="profile-container justify-content-center">
-          <img src="assets\fotoperfil2.png" class ="profile-img"  alt="">
+          <img src="{{persona.img}}" class ="profile-img"  alt="">
         </div>
         <div class="profile-text">
           <h4>{{persona.nombre}} {{persona.apellido}}</h4>
           <h6> {{persona.titulo}}</h6>
         </div>
-    </div>  
-    <div class="col-8"> 
+      </div>  
+      <div class="col-8"> 
         <div class="text-container">
-            <div class="item-title d-flex justify-content-between"> 
-                <h2> Sobre mí </h2>
-                <div class="buttons">
-                  <button type="button" class="btn btn-dark"><i class="bi bi-pencil-square" style="font-size: 1rem; color: #0D6EFD;"></i></button>
-                </div>
+          <div class="item-title d-flex justify-content-between"> 
+            <h2> Sobre mí </h2>
+            <div class="buttons">
+              <button (click)="Editar(persona)" type="button" class="btn btn-dark"><i class="bi bi-pencil-square" style="font-size: 1rem; color: #0D6EFD;"></i></button>
+            </div>
             </div>
             <div class="text"> {{persona.acerca}} </div>
-        </div>
-    </div>    
+          </div>
+        </div>    
+      </div>
     </div>
-</div>
     <hr class="text-light">
+
+  </div>

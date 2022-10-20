@@ -13,8 +13,8 @@ export class EducacionService {
 
   constructor(private http: HttpClient) { }
 
-  public getEducacion(): Observable<Educacion> {
-    return this.http.get<Educacion>(this.URL + 'traer');
+  public getEducacion(): Observable<Educacion[]> {
+    return this.http.get<Educacion[]>(this.URL + 'traer');
   }
 
   public createEducacion(educacion:Educacion) {
