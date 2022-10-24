@@ -24,6 +24,8 @@ import { interceptorProvider } from './components/interceptors/prod-interceptor.
 import { AlifeFileToBase64Module } from 'alife-file-to-base64';
 import { CrearPerComponent } from './components/presentacion/crear-per/crear-per.component';
 import { EditarPerComponent } from './components/presentacion/editar-per/editar-per.component';
+import { CrearExpComponent } from './components/experiencia/crear-exp/crear-exp.component';
+import { EditarExpComponent } from './components/experiencia/editar-exp/editar-exp.component';
 
 
 
@@ -44,6 +46,8 @@ import { EditarPerComponent } from './components/presentacion/editar-per/editar-
     RegistroComponent,
     CrearPerComponent,
     EditarPerComponent,
+    CrearExpComponent,
+    EditarExpComponent,
     
     
     

@@ -1,0 +1,31 @@
+<div class="row justify-content-center">
+    <div class="col-sm-5">
+        <div class="card-body text-light">
+        <span class="section-title mb-3 d-flex justify-content-between">
+            <h3> Editar experiencia</h3>
+        </span>
+            
+        <form action="" class="">
+            <div class="form-group">
+                <label for="" > Titulo</label>
+                <input [(ngModel)]="experiencia.titulo" [ngModelOptions]="{standalone: true}" type="text" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="" >Ente</label>
+                <input [(ngModel)]="experiencia.ente" [ngModelOptions]="{standalone: true}" type="text" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="" > Fecha Inicio</label>
+                <input [(ngModel)]="experiencia.fechaIni" [ngModelOptions]="{standalone: true}" type="text" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="" > Fecha Fin</label>
+                <input [(ngModel)]="experiencia.fechaFin" [ngModelOptions]="{standalone: true}" type="text" class="form-control">
+            </div>
+            <br>
+            <button (click)="Actualizar(experiencia)" type="button" class="btn btn-primary"> Actualizar </button>
+            <button [routerLink]="['']" type="button" class="btn btn-primary"> Volver </button>
+        </form>
+        </div>
+    </div>
+</div>

@@ -8,6 +8,8 @@ import { HomeComponent } from './components/home/home.component';
 import { ProdGuardService as guard} from './components/guards/prod-guard.service';
 import { CrearPerComponent } from './components/presentacion/crear-per/crear-per.component';
 import { EditarPerComponent } from './components/presentacion/editar-per/editar-per.component';
+import { EditarExpComponent } from './components/experiencia/editar-exp/editar-exp.component';
+import { CrearExpComponent } from './components/experiencia/crear-exp/crear-exp.component';
 
 
 const routes: Routes = [
@@ -18,7 +20,9 @@ const routes: Routes = [
   {path:'editar', component:EditarComponent, canActivate: [guard], data: {expectedRol: ['admin']}},
   {path:'crear', component:CrearComponent, canActivate: [guard], data: {expectedRol: ['admin']}},
   {path: 'crearPer', component:CrearPerComponent},
-  {path: 'editarPer', component:EditarPerComponent}
+  {path: 'editarPer', component:EditarPerComponent},
+  {path: 'crearExp', component:CrearExpComponent},
+  {path: 'editarExp', component:EditarExpComponent}
   
   
 ];

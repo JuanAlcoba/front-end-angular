@@ -1,0 +1,33 @@
+<div class="row justify-content-center">
+    <div class="col-sm-5">
+
+        <div class="card-body text-light">
+            <span class="section-title mb-3 d-flex justify-content-between">
+                <h3> Nueva Experiencia </h3>
+            </span>
+            <form action="">
+                <div class="form-group">
+                    <label for="" > Titulo</label>
+                    <input [(ngModel)]="experienciaList.titulo" [ngModelOptions]="{standalone: true}" type="text" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="" >Ente</label>
+                    <input [(ngModel)]="experienciaList.ente" [ngModelOptions]="{standalone: true}" type="text" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="" > Fecha Inicio</label>
+                    <input [(ngModel)]="experienciaList.fechaIni" [ngModelOptions]="{standalone: true}" type="text" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="" > Fecha Fin</label>
+                    <input [(ngModel)]="experienciaList.fechaFin" [ngModelOptions]="{standalone: true}" type="text" class="form-control">
+                </div>
+                <br>
+                <div class="buttons">
+                    <button (click)="GuardarExperiencia(experienciaList)" type="button" class="btn btn-primary"> Añadir </button>
+                    <button [routerLink]="['']" type="button" class="btn btn-primary"> Volver </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
