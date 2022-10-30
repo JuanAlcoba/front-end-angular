@@ -6,25 +6,35 @@
                 <h3> Nueva Experiencia </h3>
             </span>
             <form action="">
+                <select 
+                class="form-select" 
+                aria-label="Default selct example"
+                [(ngModel)]="experiencia.tipo"
+                name="selector" 
+                type="text" 
+                >
+                    <option selected></option>
+                    <option value="experiencia">Experiencia </option>
+                </select>
                 <div class="form-group">
                     <label for="" > Titulo</label>
-                    <input [(ngModel)]="experienciaList.titulo" [ngModelOptions]="{standalone: true}" type="text" class="form-control">
+                    <input [(ngModel)]="experiencia.titulo" name="titulo" type="text" class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="" >Ente</label>
-                    <input [(ngModel)]="experienciaList.ente" [ngModelOptions]="{standalone: true}" type="text" class="form-control">
+                    <input [(ngModel)]="experiencia.ente" name="ente" type="text" class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="" > Fecha Inicio</label>
-                    <input [(ngModel)]="experienciaList.fechaIni" [ngModelOptions]="{standalone: true}" type="text" class="form-control">
+                    <input [(ngModel)]="experiencia.fechaIni" name="fechaIni" type="text" class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="" > Fecha Fin</label>
-                    <input [(ngModel)]="experienciaList.fechaFin" [ngModelOptions]="{standalone: true}" type="text" class="form-control">
+                    <input [(ngModel)]="experiencia.fechaFin" name="fechaFin" type="text" class="form-control">
                 </div>
                 <br>
                 <div class="buttons">
-                    <button (click)="GuardarExperiencia(experienciaList)" type="button" class="btn btn-primary"> Añadir </button>
+                    <button (click)="GuardarExperiencia(experiencia)" type="button" class="btn btn-primary"> Añadir </button>
                     <button [routerLink]="['']" type="button" class="btn btn-primary"> Volver </button>
                 </div>
             </form>

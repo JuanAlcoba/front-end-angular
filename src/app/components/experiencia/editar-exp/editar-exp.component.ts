@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Experiencia } from 'src/app/model/experiencia.model';
-import { ExperienciaService } from 'src/app/service/experiencia.service';
+import { Educacion } from 'src/app/model/educacion.model';
+import { EducacionService } from 'src/app/service/educacion.service';
 
 @Component({
   selector: 'app-editar-exp',
@@ -12,7 +12,7 @@ export class EditarExpComponent implements OnInit {
 
   experiencia: any;
 
-  constructor(private experienciaService: ExperienciaService, private router: Router) { }
+  constructor(private experienciaService: EducacionService, private router: Router) { }
 
   ngOnInit(): void {
     this.Editar();
@@ -20,15 +20,15 @@ export class EditarExpComponent implements OnInit {
 
   Editar(){
     let id=localStorage.getItem("id");
-    this.experienciaService.getExperienciaId(+id)
+    this.experienciaService.getEducacionId(+id)
     .subscribe(data=>{
       this.experiencia=data;
     })
 
   }
 
-  Actualizar(experiencia: Experiencia){
-  this.experienciaService.updateExperiencia(experiencia).subscribe(data=>{
+  Actualizar(experiencia: Educacion){
+  this.experienciaService.updateEducacion(experiencia).subscribe(data=>{
     this.experiencia = data;
     alert("Se Actualizo con exito!");
     this.router.navigate(['']);

@@ -8,19 +8,19 @@
         <form action="" class="">
             <div class="form-group">
                 <label for="" > Titulo</label>
-                <input [(ngModel)]="experiencia.titulo" [ngModelOptions]="{standalone: true}" type="text" class="form-control">
+                <input [(ngModel)]="experiencia.titulo" name="titulo" type="text" class="form-control">
             </div>
             <div class="form-group">
                 <label for="" >Ente</label>
-                <input [(ngModel)]="experiencia.ente" [ngModelOptions]="{standalone: true}" type="text" class="form-control">
+                <input [(ngModel)]="experiencia.ente" name="ente" type="text" class="form-control">
             </div>
             <div class="form-group">
                 <label for="" > Fecha Inicio</label>
-                <input [(ngModel)]="experiencia.fechaIni" [ngModelOptions]="{standalone: true}" type="text" class="form-control">
+                <input [(ngModel)]="experiencia.fechaIni" name="fechaIni" type="text" class="form-control">
             </div>
             <div class="form-group">
                 <label for="" > Fecha Fin</label>
-                <input [(ngModel)]="experiencia.fechaFin" [ngModelOptions]="{standalone: true}" type="text" class="form-control">
+                <input [(ngModel)]="experiencia.fechaFin" name="fechaFin" type="text" class="form-control">
             </div>
             <br>
             <button (click)="Actualizar(experiencia)" type="button" class="btn btn-primary"> Actualizar </button>

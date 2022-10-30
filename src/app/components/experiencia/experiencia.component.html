@@ -26,7 +26,7 @@
           </div>
       </div> <hr>
       <div *ngFor="let experiencia of experiencia">
-        <div class="item">
+        <div *ngIf=" experiencia.tipo === 'experiencia' " class="item">
             <div class="item-title d-flex justify-content-between">
                 <h6><b> {{experiencia.titulo}} </b> </h6>
                 <div class="buttons" *ngIf="isAdmin">

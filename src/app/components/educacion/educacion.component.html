@@ -6,16 +6,16 @@
           <div class="section-title mb-4">
               <h2> Educación</h2>
           </div>
-                
+  
           <span class="section-title mb-3 d-flex justify-content-between">
               <h3> Cursos y Certificaciones </h3>
               <div class="buttons" *ngIf="isAdmin">
                   <button (click)="Crear()" type="button" class="btn btn-dark"><i class="bi bi-plus-circle" style="font-size: 1rem; color: #0D6EFD;" ></i></button>
               </div>
           </span>
-          
-          <div *ngFor="let educacion of educacionList">
-            <div class="item">
+
+          <div *ngFor="let educacion of educacion">
+            <div *ngIf=" educacion.tipo === 'cursos' " class="item">
                 <div class="item-title d-flex justify-content-between">
                     <h6><b> {{educacion.titulo}} </b> </h6>
                     <div class="buttons" *ngIf="isAdmin">
@@ -38,17 +38,21 @@
               </div>
           </span>
     
-          <div class="item">
-              <div class="item-title d-flex justify-content-between">
-                  <h6><b> Licenciado en Ciencias biológicas </b></h6>
-                  <div class="buttons">
-                      <button type="button" class="btn btn-dark"><i class="bi bi-pencil-square" style="font-size: 1rem; color: #0D6EFD;"></i></button>
-                      <button type="button" class="btn btn-dark"><i class="bi bi-trash" style="font-size: 1rem; color: #0D6EFD;"></i></button>
-                  </div>
-              </div>
-              <h6> Universidad Nacional de Río Cuarto </h6>
-              <p> <em>2012 - 2017</em> </p>
-              </div>
+          <div *ngFor="let educacion of educacion">
+            <div *ngIf="educacion.tipo === 'titulo'" class="item">
+                <div class="item-title d-flex justify-content-between">
+                    <h6><b> {{educacion.titulo}} </b> </h6>
+                    <div class="buttons" *ngIf="isAdmin">
+                        <button (click)="Editar(educacion)" type="button" class="btn btn-dark"><i class="bi bi-pencil-square"
+                                style="font-size: 1rem; color: #0D6EFD;"></i></button>
+                        <button (click)="EliminarEducacion(educacion)" type="button" class="btn btn-dark"><i class="bi bi-trash"
+                                style="font-size: 1rem; color: #0D6EFD;"></i></button>
+                    </div>
+                </div>
+                <h6> {{educacion.ente}} </h6>
+                <p> <em> {{educacion.fechaIni}} {{educacion.fechaFin}}</em></p>
+            </div>
+           </div>
     
       </div>
     </div>

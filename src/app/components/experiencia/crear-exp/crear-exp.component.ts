@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Experiencia } from 'src/app/model/experiencia.model';
-import { ExperienciaService } from 'src/app/service/experiencia.service';
+import { Educacion } from 'src/app/model/educacion.model';
+import { EducacionService } from 'src/app/service/educacion.service';
 @Component({
   selector: 'app-crear-exp',
   templateUrl: './crear-exp.component.html',
@@ -9,20 +9,19 @@ import { ExperienciaService } from 'src/app/service/experiencia.service';
 })
 export class CrearExpComponent implements OnInit {
 
-  public experienciaList: Experiencia = new Experiencia("","","","","");
-  constructor(private experienciaService: ExperienciaService, private router: Router) { }
+  public experiencia: Educacion = new Educacion("","","","","");
+  constructor(private experienciaService: EducacionService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  public GuardarExperiencia(experiencia:Experiencia){
-    this.experienciaService.createExperiencia(experiencia)
+  public GuardarExperiencia(experiencia:Educacion){
+    this.experienciaService.createEducacion(experiencia)
     .subscribe(data=>{
-      this.experienciaList = data;
+      this.experiencia = data;
       alert("Se Agrego con Exito...!!!");
       this.router.navigate([""]);
     })
   }
-
 }
 

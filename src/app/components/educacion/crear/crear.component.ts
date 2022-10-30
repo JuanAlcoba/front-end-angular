@@ -10,19 +10,22 @@ import { EducacionService } from 'src/app/service/educacion.service';
 })
 export class CrearComponent implements OnInit {
 
-  public educacionList: Educacion = new Educacion("","","","");
+  public educacion: Educacion = new Educacion("","","","","");
   constructor(private datosEducacion: EducacionService, private router: Router) { }
 
   ngOnInit(): void {
+  
   }
 
   public GuardarEducacion(educacion:Educacion){
     this.datosEducacion.createEducacion(educacion)
     .subscribe(data=>{
-      this.educacionList = data;
+      this.educacion = data;
+      console.log(data)
       alert("Se Agrego con Exito...!!!");
       this.router.navigate([""]);
     })
   }
+  
 
 }

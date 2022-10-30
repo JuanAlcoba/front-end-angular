@@ -12,7 +12,7 @@ import { TokenService } from 'src/app/service/token.service';
 })
 export class EducacionComponent implements OnInit {
 
-  public educacionList: any;
+  public educacion: any;
   public roles: string[];
   public isAdmin = false;
 
@@ -36,7 +36,7 @@ export class EducacionComponent implements OnInit {
   public getEducacion(){
     this.datosEducacion.getEducacion().subscribe(data => {
       console.log(data);
-      this.educacionList = data
+      this.educacion = data
     });
   }
   
@@ -52,7 +52,7 @@ export class EducacionComponent implements OnInit {
   public EliminarEducacion(educacion: Educacion) {
     this.datosEducacion.deleteEducacion(educacion).subscribe(data => {
       console.log(data);
-      this.educacionList = this.educacionList.filter((p: Educacion) =>{
+      this.educacion = this.educacion.filter((p: Educacion) =>{
         p !== educacion;
         console.log(p);
       });

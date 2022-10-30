@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Experiencia } from 'src/app/model/experiencia.model';
-import { ExperienciaService } from 'src/app/service/experiencia.service';
+import { Educacion } from 'src/app/model/educacion.model';
+import { EducacionService } from 'src/app/service/educacion.service';
+
 import { TokenService } from 'src/app/service/token.service';
 
 @Component({
@@ -17,7 +18,7 @@ export class ExperienciaComponent implements OnInit {
 
   
   constructor(
-    private experienciaService: ExperienciaService,
+    private experienciaService: EducacionService,
     private router: Router,
     private tokenService: TokenService,
     ) { }
@@ -33,7 +34,7 @@ export class ExperienciaComponent implements OnInit {
   }
 
   public getExperiencia(){
-    this.experienciaService.getExperiencia().subscribe(data => {
+    this.experienciaService.getEducacion().subscribe(data => {
       console.log(data);
       this.experiencia = data
     });
@@ -43,15 +44,15 @@ export class ExperienciaComponent implements OnInit {
     this.router.navigate(["crearExp"]);
   }
 
-  public Editar(experiencia: Experiencia){
+  public Editar(experiencia: Educacion){
     localStorage.setItem("id",experiencia.id.toString());
     this.router.navigate(["editarExp"]);
   }
 
-  public EliminarExperiencia(experiencia: Experiencia) {
-    this.experienciaService.deleteExperiencia(experiencia).subscribe(data => {
+  public EliminarExperiencia(experiencia: Educacion) {
+    this.experienciaService.deleteEducacion(experiencia).subscribe(data => {
       console.log(data);
-      this.experiencia = this.experiencia.filter((p: Experiencia) =>{
+      this.experiencia = this.experiencia.filter((p: Educacion) =>{
         p !== experiencia;
         console.log(p);
       });
