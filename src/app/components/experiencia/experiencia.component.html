@@ -52,25 +52,25 @@
 <!-- Modal Crear Header -->
 <ng-template #content let-c="close" let-d="dismiss">
     <div class="modal-header">
-      <h4 class="modal-title" id="modal-basic-title">Agregar Experiencia</h4>
+      <h4 class="modal-title" id="modal-basic-title">Agregar Header</h4>
       <button  class="btn-close" aria-label="Close" (click)="d('Cross click')"></button>
     </div>
     <div class="modal-body">
 
       <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate> 
         <select 
-                class="form-select" 
-                aria-label="Default selct example"
-                #contenido="ngModel"
-                name="tipo" 
-                type="text" 
-                ngModel
-                required
-                >
-                    <option selected></option>
-                    <option value="experiencia">Experiencia</option>
-                    
-                </select>
+        class="form-select" 
+        aria-label="Default selct example"
+        #contenido="ngModel"
+        name="tipo" 
+        type="text" 
+        ngModel
+        required
+        >
+            <option selected></option>
+            <option value="experiencia">Experiencia</option>
+            
+        </select>
         <div class="form-group">
           <label for="contenido">Contenido:</label>
           <div class="input-group">

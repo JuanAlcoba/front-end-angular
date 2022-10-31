@@ -1,132 +1,186 @@
 <!-- habilidades -->
 <section id="Habilidades" class="container text-light">
     <div class="row">
-    <div class="text-container">
-      <div class="item-title d-flex justify-content-between"> 
-          <h2> Habilidades </h2>
-          <div class="buttons">
-              <button type="button" class="btn btn-dark"><i class="bi bi-pencil-square" style="font-size: 1rem; color: #0D6EFD;"></i></button>
-          </div>
-      </div>
-      <p> Actualmente me encuentro cursando una capacitacion para un perfil full-stack Jr, pero por el momento mis habilidades están orientadas hacia el Front-end.
-          Tengo un manejo del ingles suficiente para poder leer, entender, extraer informacion y traducir el material que se me proponga. También estoy familiarizado con algunos softwares de control de versiones como Git y GitHub.
-          En cuanto a mis habilidades blandas puedo destacar que soy muy tenaz y cuando quiero lograr una meta no para hasta conseguirla. 
-      </p>
-    </div>
+        <div class="col">
+            <div class="section-title mb-4 d-flex justify-content-between"> 
+                <h2> Habilidades </h2>
+                <div class="buttons">
+                    <button (click)="crearHab(hab)" type="button" class="btn btn-dark"><i class="bi bi-plus-circle" style="font-size: 1rem; color: #0D6EFD;"></i></button>
+                </div>
+            </div>
+        </div>
     </div> 
-    
-    <div class="row">      
-    <div class="col-lg-4 mt-4"> 
-      <div class="d-flex justify-content-between">
-      <h2>Front End</h2>
-      <button type="button" class="btn btn-dark"><i class="bi bi-plus-circle" style="font-size: 1rem; color: #0D6EFD;"></i></button>
-      </div>
-      <div class="d-flex justify-content-between">
-          <h5><i class="fa-brands fa-html5"></i> HTML </h5>
-          <div class="buttons">
-              <button type="button" class="btn btn-dark"><i class="bi bi-pencil-square" style="font-size: 1rem; color: #0D6EFD;"></i></button>
-              <button type="button" class="btn btn-dark"><i class="bi bi-trash" style="font-size: 1rem; color: #0D6EFD;"></i></button>
-          </div>
-      </div>   
-      <div class="progress">
-          <div class="progress-bar bg-warning" role="progressbar" style="width: 90%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-      </div>
-      <div class="d-flex justify-content-between mt-2">
-          <h5> <i class="fa-brands fa-css3-alt"></i> CSS </h5>
-          <div class="buttons">
-              <button type="button" class="btn btn-dark"><i class="bi bi-pencil-square" style="font-size: 1rem; color: #0D6EFD;"></i></button>
-              <button type="button" class="btn btn-dark"><i class="bi bi-trash" style="font-size: 1rem; color: #0D6EFD;"></i></button>
-          </div>
-      </div>   
-      <div class="progress">
-          <div class="progress-bar bg-warning" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-      </div>
-      <div class="d-flex justify-content-between mt-2">
-          <h5><i class="fa-brands fa-js"></i>  JavaScript </h5>
-          <div class="buttons">
-              <button type="button" class="btn btn-dark"><i class="bi bi-pencil-square" style="font-size: 1rem; color: #0D6EFD;"></i></button>
-              <button type="button" class="btn btn-dark"><i class="bi bi-trash" style="font-size: 1rem; color: #0D6EFD;"></i></button>
-          </div>
-      </div>   
-      <div class="progress">
-          <div class="progress-bar bg-warning" role="progressbar" style="width: 40%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-      </div>
-      <div class="d-flex justify-content-between mt-2">
-          <h5><i class="fa-brands fa-angular"></i> Angular </h5>
-          <div class="buttons">
-              <button type="button" class="btn btn-dark"><i class="bi bi-pencil-square" style="font-size: 1rem; color: #0D6EFD;"></i></button>
-              <button type="button" class="btn btn-dark"><i class="bi bi-trash" style="font-size: 1rem; color: #0D6EFD;"></i></button>
-          </div>
-      </div>   
-      <div class="progress">
-          <div class="progress-bar bg-warning" role="progressbar" style="width: 10%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-      </div>
-    </div>
-      
-    <div class="col-lg-4 mt-4  "> 
-      <div class="d-flex justify-content-between">
-      <h2>Back End</h2>
-      <button type="button" class="btn btn-dark"><i class="bi bi-plus-circle" style="font-size: 1rem; color: #0D6EFD;"></i></button> 
-      </div>
-      <div class="d-flex justify-content-between">
-          <h5><i class="fa-brands fa-java"></i> Java/Spring Boot</h5>
-          <div class="buttons">
-              <button type="button" class="btn btn-dark"><i class="bi bi-pencil-square" style="font-size: 1rem; color: #0D6EFD;"></i></button>
-              <button type="button" class="btn btn-dark"><i class="bi bi-trash" style="font-size: 1rem; color: #0D6EFD;"></i></button>
-          </div>
-      </div>  
-      <div class="progress">
-          <div class="progress-bar bg-danger" role="progressbar" style="width: 0%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-        </div>
-        <div class="d-flex justify-content-between mt-2">
-          <h5><i class="fa-solid fa-database"></i> MySql</h5>
-          <div class="buttons">
-              <button type="button" class="btn btn-dark"><i class="bi bi-pencil-square" style="font-size: 1rem; color: #0D6EFD;"></i></button>
-              <button type="button" class="btn btn-dark"><i class="bi bi-trash" style="font-size: 1rem; color: #0D6EFD;"></i></button>
-          </div>
-      </div>  
-      <div class="progress">
-          <div class="progress-bar bg-danger" role="progressbar" style="width: 0%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+    <div *ngIf="header && header.length; else other_content" class="item">
+        <div *ngFor="let item of header" class="item-title d-flex justify-content-between">
+            <p> {{item.contenido}}
+            </p>
+            <div class="buttons">
+                <button (click)="editarHeader(contentEdit, item)" type="button" class="btn btn-dark"><i class="bi bi-pencil-square" style="font-size: 1rem; color: #0D6EFD;"></i></button>
+                <button (click)="eliminarHeader(item)" class="btn btn-dark"><i class="bi bi-trash" style="font-size: 1rem; color: #0D6EFD;"></i></button>
+            </div>
         </div>
     </div>
-    
-    <div class="col-lg-4  mt-4"> 
-      <div class="d-flex justify-content-between">
-      <h2>Soft Skils</h2>
-      <button type="button" class="btn btn-dark"><i class="bi bi-plus-circle" style="font-size: 1rem; color: #0D6EFD;"></i></button> 
-      </div>
-      <div class="d-flex justify-content-between">
-          <h5><i class="fa-solid fa-people-group"></i> Trabajo en equipo</h5>
-          <div class="buttons">
-              <button type="button" class="btn btn-dark"><i class="bi bi-pencil-square" style="font-size: 1rem; color: #0D6EFD;"></i></button>
-              <button type="button" class="btn btn-dark"><i class="bi bi-trash" style="font-size: 1rem; color: #0D6EFD;"></i></button>
-          </div>
-      </div>  
-      <div class="progress">
-          <div class="progress-bar bg-success" role="progressbar" style="width: 75%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+    <ng-template #other_content>
+        <div class="item-title d-flex justify-content-between">
+            <p> Inserte aquí un header propicio para esta sección </p>
+            <div class="buttons">
+                <button (click)="crearHeader(content)" type="button" class="btn btn-dark"><i class="bi bi-plus-circle" style="font-size: 1rem; color: #0D6EFD;"></i></button>
+            </div>
         </div>
-        <div class="d-flex justify-content-between mt-2">
-          <h5><i class="fa-solid fa-dumbbell"></i> Responsabilidad </h5>
-          <div class="buttons">
-              <button type="button" class="btn btn-dark"><i class="bi bi-pencil-square" style="font-size: 1rem; color: #0D6EFD;"></i></button>
-              <button type="button" class="btn btn-dark"><i class="bi bi-trash" style="font-size: 1rem; color: #0D6EFD;"></i></button>
-          </div>
-      </div>  
-      <div class="progress">
-          <div class="progress-bar bg-success" role="progressbar" style="width: 90%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+    </ng-template>
+
+    <!-- Modal Crear Header -->
+    <ng-template #content let-c="close" let-d="dismiss">
+        <div class="modal-header">
+            <h4 class="modal-title" id="modal-basic-title">Agregar Header</h4>
+            <button  class="btn-close" aria-label="Close" (click)="d('Cross click')"></button>
         </div>
-        <div class="d-flex justify-content-between mt-2">
-          <h5><i class="fa-solid fa-heart"></i> Empatía</h5>
-          <div class="buttons">
-              <button type="button" class="btn btn-dark"><i class="bi bi-pencil-square" style="font-size: 1rem; color: #0D6EFD;"></i></button>
-              <button type="button" class="btn btn-dark"><i class="bi bi-trash" style="font-size: 1rem; color: #0D6EFD;"></i></button>
-          </div>
-      </div>  
-      <div class="progress">
-          <div class="progress-bar bg-success" role="progressbar" style="width: 90%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+        <div class="modal-body">
+            <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate> 
+                <select 
+                class="form-select" 
+                aria-label="Default selct example"
+                #contenido="ngModel"
+                name="tipo" 
+                type="text" 
+                ngModel
+                required
+                >
+                    <option selected></option>
+                    <option value="habilidades">Habilidades</option>
+                </select>
+
+                <div class="form-group">
+                    <label for="contenido">Contenido:</label>
+                    <div class="input-group">
+                        <input id="contenido" name="contenido" class="form-control" #contenido="ngModel" ngModel/>
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="modal-footer">
+                    <button type="submit"  [disabled]="f.invalid" class="btn btn-outline-dark" (click)="c('Save click')">Agregar</button>
+                </div>
+            </form>
         </div>
-      </div>
-    </div>
-        
+    </ng-template>
+
+    <!-- Modal Editar Header -->
+    <ng-template #contentEdit let-modal>
+        <div class="modal-header">
+            <h4 class="modal-title" id="modal-basic-title2">Editar Header</h4>
+            <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            </button>
+        </div>
+        <div class="modal-body">
+            <form [formGroup]="editForm" novalidate>
+                <div class="form-group">
+                    <label for="contenido">Contenido:</label>
+                    <div class="input-group">
+                        <input name="contenido" formControlName="contenido" class="form-control">
+                    </div>
+                </div>
+            </form>
+
+            <div class="modal-footer">
+                <button data-dismiss="modal" class="btn btn-primary" (click)="actualizarHeader()">Actualizar</button>
+                <button type="button" class="btn btn-danger" (click)="modal.close('Save click')">Cerrar</button>
+            </div>
+        </div>
+    </ng-template>
+
+
+<!-- CARDS CARDS CARDS CARDS -->
+    <div *ngFor="let habilidad of habilidades" >     
+
+        <div *ngIf=" habilidad.tipo === 'front' " class="row"> 
+            <div class="col-lg-4 mt-4" >
+                <div class="d-flex justify-content-between">
+                    <h2>{{habilidad.tipo}}</h2> 
+                    <button (click)="crearHab(hab)" type="button" class="btn btn-dark"><i class="bi bi-plus-circle" style="font-size: 1rem; color: #0D6EFD;"></i></button>
+                    </div>
+                <div class="d-flex justify-content-between">
+                    <h5><i >{{habilidad.logo}}</i> {{habilidad.titulo}} </h5>
+                    <div class="buttons">
+                        <button type="button" class="btn btn-dark"><i class="bi bi-pencil-square" style="font-size: 1rem; color: #0D6EFD;"></i></button>
+                        <button type="button" class="btn btn-dark"><i class="bi bi-trash" style="font-size: 1rem; color: #0D6EFD;"></i></button>
+                    </div>
+                </div>   
+                <div class="progress">
+                    <div class="progress-bar bg-warning" role="progressbar" style="width: 90%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf=" habilidad.tipo === 'back' " class="row"> 
+            <div class="col-lg-4 mt-4" >
+                <div class="d-flex justify-content-between">
+                    <h2>{{habilidad.tipo}}</h2> 
+                    <button (click)="crearHab(hab)" type="button" class="btn btn-dark"><i class="bi bi-plus-circle" style="font-size: 1rem; color: #0D6EFD;"></i></button>
+                    </div>
+                <div class="d-flex justify-content-between">
+                    <h5><i >{{habilidad.logo}}</i> {{habilidad.titulo}} </h5>
+                    <div class="buttons">
+                        <button type="button" class="btn btn-dark"><i class="bi bi-pencil-square" style="font-size: 1rem; color: #0D6EFD;"></i></button>
+                        <button type="button" class="btn btn-dark"><i class="bi bi-trash" style="font-size: 1rem; color: #0D6EFD;"></i></button>
+                    </div>
+                </div>   
+                <div class="progress">
+                    <div class="progress-bar bg-warning" role="progressbar" style="width: 90%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>     
     </section>
     <hr class="text-light">
+
+    <!-- Modal Crear Habilidad -->
+    <ng-template #hab let-c="close" let-d="dismiss">
+        <div class="modal-header">
+            <h4 class="modal-title" id="modal-basic-title">Agregar Habilidad</h4>
+            <button  class="btn-close" aria-label="Close" (click)="d('Cross click')"></button>
+        </div>
+        <div class="modal-body">
+            <form #f2="ngForm" (ngSubmit)="onSubmit2(f2)" novalidate> 
+                <select 
+                class="form-select" 
+                aria-label="Default selct example"
+                #titulo="ngModel"
+                name="tipo" 
+                type="text" 
+                ngModel
+                required
+                >
+                    <option selected></option>|
+                    <option value="front">Front End</option>
+                    <option value="back">Back End</option>
+                    <option value="soft">Soft End</option>
+                </select>
+                <div class="form-group">
+                    <label for="titulo">Titulo:</label>
+                    <div class="input-group">
+                        <input id="titulo" name="titulo" class="form-control" #titulo="ngModel" ngModel/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="porcentaje">Porcentaje %:</label>
+                    <div class="input-group">
+                        <input id="porcentaje" type="number" name="porcentaje" class="form-control" #titulo="ngModel" ngModel/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="logo">Logo:</label>
+                    <div class="input-group">
+                        <input id="logo" name="logo" class="form-control" #titulo="ngModel" ngModel/>
+                    </div>
+                </div>
+                
+                <br>
+
+                <div class="modal-footer">
+                    <button type="submit"  [disabled]="f2.invalid" class="btn btn-outline-dark" (click)="c('Save click')">Agregar</button>
+                </div>
+            </form>
+        </div>
+    </ng-template>
