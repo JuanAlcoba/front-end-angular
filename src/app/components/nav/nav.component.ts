@@ -27,7 +27,7 @@ export class NavComponent implements OnInit {
 
   public getPersona(){
     this.personaService.getPersona().subscribe(data => {
-      console.log(data);
+      // console.log(data);
       this.persona = data
     });
   }

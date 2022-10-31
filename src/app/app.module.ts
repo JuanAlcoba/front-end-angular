@@ -11,7 +11,7 @@ import { HabilidadesComponent } from './components/habilidades/habilidades.compo
 import { ProyectosComponent } from './components/proyectos/proyectos.component';
 import { PortfolioService } from './portfolio.service';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CrearComponent } from './components/educacion/crear/crear.component';
 import { EditarComponent } from './components/educacion/editar/editar.component';
 import { RouterModule } from '@angular/router';
@@ -26,6 +26,7 @@ import { CrearPerComponent } from './components/presentacion/crear-per/crear-per
 import { EditarPerComponent } from './components/presentacion/editar-per/editar-per.component';
 import { CrearExpComponent } from './components/experiencia/crear-exp/crear-exp.component';
 import { EditarExpComponent } from './components/experiencia/editar-exp/editar-exp.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -59,12 +60,15 @@ import { EditarExpComponent } from './components/experiencia/editar-exp/editar-e
     AppRoutingModule,
     RouterModule,
     FormsModule,
+    ReactiveFormsModule,
+    NgbModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    AlifeFileToBase64Module
+    AlifeFileToBase64Module,
+    NgbModule
     
   ],
-  providers: [PortfolioService, interceptorProvider],
+  providers: [PortfolioService, interceptorProvider, NgbModule,],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -35,7 +35,7 @@ export class EducacionComponent implements OnInit {
 
   public getEducacion(){
     this.datosEducacion.getEducacion().subscribe(data => {
-      console.log(data);
+      // console.log(data);
       this.educacion = data
     });
   }

@@ -1,6 +1,6 @@
 <!-- Experiencia -->
 <section id="Experiencia" class="container text-light">
-
+    
     <div class="row">
       <div class="col">
           <div class="section-title mb-4 d-flex justify-content-between">
@@ -11,24 +11,34 @@
           </div>
       </div>
     
-      <div *ngFor="let header of header" class="item">
-          <div class="item-title d-flex justify-content-between">
-              <p> {{header.contenido}}
+      <div *ngIf="header && header.length; else other_content" class="item">
+          <div *ngFor="let item of header" class="item-title d-flex justify-content-between">
+              <p> {{item.contenido}}
               </p>
               <div class="buttons">
-                  <button type="button" class="btn btn-dark"><i class="bi bi-pencil-square" style="font-size: 1rem; color: #0D6EFD;"></i></button>
-                  <button type="button" class="btn btn-dark"><i class="bi bi-trash" style="font-size: 1rem; color: #0D6EFD;"></i></button>
+                  <button (click)="editarHeader(contentEdit, item)" type="button" class="btn btn-dark"><i class="bi bi-pencil-square" style="font-size: 1rem; color: #0D6EFD;"></i></button>
+                  <button (click)="eliminarHeader(item)" class="btn btn-dark"><i class="bi bi-trash" style="font-size: 1rem; color: #0D6EFD;"></i></button>
               </div>
           </div>
-      </div> <hr>
-      <div *ngFor="let experiencia of experiencia">
+      </div>
+      <ng-template #other_content>
+        <div class="item-title d-flex justify-content-between">
+            <p> Inserte aquí un header propicio para esta sección </p>
+            <div class="buttons">
+                <button (click)="cearHeader(content)" type="button" class="btn btn-dark"><i class="bi bi-plus-circle" style="font-size: 1rem; color: #0D6EFD;"></i></button>
+            </div>
+        </div>
+      </ng-template>
+       
+      <hr>
+      <div *ngFor="let experiencia of experiencias">
         <div *ngIf=" experiencia.tipo === 'experiencia' " class="item">
             <div class="item-title d-flex justify-content-between">
                 <h6><b> {{experiencia.titulo}} </b> </h6>
                 <div class="buttons" *ngIf="isAdmin">
                     <button (click)="editarExp(experiencia)" type="button" class="btn btn-dark"><i class="bi bi-pencil-square"
                             style="font-size: 1rem; color: #0D6EFD;"></i></button>
-                    <button (click)="EliminarExp(experiencia)" type="button" class="btn btn-dark"><i class="bi bi-trash"
+                    <button (click)="eliminarExp(experiencia)" type="button" class="btn btn-dark"><i class="bi bi-trash"
                             style="font-size: 1rem; color: #0D6EFD;"></i></button>
                 </div>
             </div>
@@ -37,4 +47,65 @@
         </div>
        </div>    
     </div>
-    </section>
+</section>
+
+<!-- Modal Crear Header -->
+<ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Agregar Experiencia</h4>
+      <button  class="btn-close" aria-label="Close" (click)="d('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+
+      <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate> 
+        <select 
+                class="form-select" 
+                aria-label="Default selct example"
+                #contenido="ngModel"
+                name="tipo" 
+                type="text" 
+                ngModel
+                required
+                >
+                    <option selected></option>
+                    <option value="experiencia">Experiencia</option>
+                    
+                </select>
+        <div class="form-group">
+          <label for="contenido">Contenido:</label>
+          <div class="input-group">
+            <input id="contenido" name="contenido" class="form-control" #contenido="ngModel" ngModel/>
+          </div>
+        </div>
+        <br>
+        <div class="modal-footer">
+          <button type="submit"  [disabled]="f.invalid" class="btn btn-outline-dark" (click)="c('Save click')">Agregar</button>
+        </div>
+      </form>
+    </div>
+  </ng-template>
+
+  <!-- Modal Editar Header -->
+  <ng-template #contentEdit let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title2">Editar Header</h4>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      </button>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="editForm" novalidate>
+        <div class="form-group">
+            <label for="contenido">Contenido:</label>
+            <div class="input-group">
+              <input name="contenido" formControlName="contenido" class="form-control">
+            </div>
+          </div>
+      </form>
+
+
+      <div class="modal-footer">
+        <button data-dismiss="modal" class="btn btn-primary" (click)="actualizarHeader()">Actualizar</button>
+        <button type="button" class="btn btn-danger" (click)="modal.close('Save click')">Cerrar</button>
+      </div>
+    </div>
+  </ng-template>
