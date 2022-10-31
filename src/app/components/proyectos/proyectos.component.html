@@ -2,57 +2,215 @@
 
 <section id="Proyectos" class="container text-light">
     <div class="row">
-    <div class="text-container">
-      <div class="item-title d-flex justify-content-between"> 
-          <h2> Proyectos </h2>
-          <div class="buttons">
-              <button type="button" class="btn btn-dark"><i class="bi bi-pencil-square" style="font-size: 1rem; color: #0D6EFD;"></i></button>
+      <div class="col">
+        <div class="item-title d-flex justify-content-between"> 
+            <h2> Proyectos </h2>
+            <div class="buttons">
+                <button (click)="crearPro(pro)" type="button" class="btn btn-dark"><i class="bi bi-pencil-square" style="font-size: 1rem; color: #0D6EFD;"></i></button>
+            </div>
+        </div>
+        <div *ngIf="header && header.length; else other_content" class="item">
+          <div *ngFor="let item of header" class="item-title d-flex justify-content-between">
+              <p> {{item.contenido}}
+              </p>
+              <div class="buttons">
+                  <button (click)="editarHeader(contentEdit, item)" type="button" class="btn btn-dark"><i class="bi bi-pencil-square" style="font-size: 1rem; color: #0D6EFD;"></i></button>
+                  <button (click)="eliminarHeader(item)" class="btn btn-dark"><i class="bi bi-trash" style="font-size: 1rem; color: #0D6EFD;"></i></button>
+              </div>
           </div>
+        </div>
+        <ng-template #other_content>
+          <div class="item-title d-flex justify-content-between">
+              <p> Inserte aquí un header propicio para esta sección </p>
+              <div class="buttons">
+                  <button (click)="crearHeader(content)" type="button" class="btn btn-dark"><i class="bi bi-plus-circle" style="font-size: 1rem; color: #0D6EFD;"></i></button>
+              </div>
+          </div>
+        </ng-template>
       </div>
-      <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque quia quae aliquam! Iusto quae non deserunt incidunt reiciendis sint quasi.</p>
-    </div>
-    </div>    
+    </div> 
+
+  <!-- CARDS CARDS CARDS CARDS -->
     <div class="row justify-content-center">
-    <div id="project-cards" class="col project-cards">
-      <div class="card bg-dark border" style="width: 20rem;">
-          <img src="assets\proyecto1.png" class="card-img-top" alt="...">
-          <hr>
-          <div class="card-body">
-            <div class="item-title d-flex justify-content-between">
-              <h5 class="card-title">Portfolio web</h5>
-              <div class="buttons">
-                  <button type="button" class="btn btn-dark"><i class="bi bi-pencil-square" style="font-size: 1rem; color: #0D6EFD;"></i></button>
-                  <button type="button" class="btn btn-dark"><i class="bi bi-trash" style="font-size: 1rem; color: #0D6EFD;"></i></button>
-                </div>
+      <div *ngFor="let proyecto of proyectos"id="project-cards" class="col project-cards">
+        <div class="card bg-dark border" style="width: 20rem;">
+            <img src="assets\proyecto1.png" class="card-img-top" alt="...">
+            <hr>
+            <div class="card-body">
+              <div class="item-title d-flex justify-content-between">
+                <h5 class="card-title">{{proyecto.titulo}}</h5>
+                <div class="buttons">
+                    <button (click)="editarPro(proEdit, proyecto)" type="button" class="btn btn-dark"><i class="bi bi-pencil-square" style="font-size: 1rem; color: #0D6EFD;"></i></button>
+                    <button type="button" class="btn btn-dark"><i class="bi bi-trash" style="font-size: 1rem; color: #0D6EFD;"></i></button>
+                  </div>
+              </div>
+              <p class="card-text">{{proyecto.contenido}}</p>
             </div>
-            <p class="card-text">Creación de mi propio portfolio web practicando y aplicando conocimientos, 
-                haciendo uso de HTML,CSS, Bootstrap,JavasScrip</p>
-          </div>
-          <div class="card-body">
-            <a href="#" class="card-link">Card link</a>
-            <a href="#" class="card-link">Another link</a>
+            <div class="card-body">
+              <a href="{{proyecto.link}}" class="card-link">Link Al Proyecto</a>
+            </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Modal Crear Header -->
+    <ng-template #content let-c="close" let-d="dismiss">
+      <div class="modal-header">
+          <h4 class="modal-title" id="modal-basic-title">Agregar Header</h4>
+          <button  class="btn-close" aria-label="Close" (click)="d('Cross click')"></button>
+      </div>
+      <div class="modal-body">
+          <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate> 
+              <select 
+              class="form-select" 
+              aria-label="Default selct example"
+              #contenido="ngModel"
+              name="tipo" 
+              type="text" 
+              ngModel
+              required
+              >
+                  <option selected></option>
+                  <option value="habilidades">Habilidades</option>
+              </select>
+
+              <div class="form-group">
+                  <label for="contenido">Contenido:</label>
+                  <div class="input-group">
+                      <input id="contenido" name="contenido" class="form-control" #contenido="ngModel" ngModel/>
+                  </div>
+              </div>
+
+              <br>
+
+              <div class="modal-footer">
+                  <button type="submit"  [disabled]="f.invalid" class="btn btn-outline-dark" (click)="c('Save click')">Agregar</button>
+              </div>
+          </form>
+      </div>
+  </ng-template>
+
+  <!-- Modal Editar Header -->
+  <ng-template #contentEdit let-modal>
+      <div class="modal-header">
+          <h4 class="modal-title" id="modal-basic-title2">Editar Header</h4>
+          <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          </button>
+      </div>
+      <div class="modal-body">
+          <form [formGroup]="headForm" novalidate>
+              <div class="form-group">
+                  <label for="contenido">Contenido:</label>
+                  <div class="input-group">
+                      <input name="contenido" formControlName="contenido" class="form-control">
+                  </div>
+              </div>
+          </form>
+
+          <div class="modal-footer">
+              <button data-dismiss="modal" class="btn btn-primary" (click)="actualizarHeader()">Actualizar</button>
+              <button type="button" class="btn btn-danger" (click)="modal.close('Save click')">Cerrar</button>
           </div>
       </div>
+  </ng-template>
     
-      <div class="card bg-dark border" style="width: 20rem;">
-          <img src="assets\proyecto2.png" class="card-img-top" alt="...">
-          <hr>
-          <div class="card-body">
-            <div class="item-title d-flex justify-content-between">
-              <h5 class="card-title">Portfolio web</h5>
-              <div class="buttons">
-                  <button type="button" class="btn btn-dark"><i class="bi bi-pencil-square" style="font-size: 1rem; color: #0D6EFD;"></i></button>
-                  <button type="button" class="btn btn-dark"><i class="bi bi-trash" style="font-size: 1rem; color: #0D6EFD;"></i></button>
+  <!-- Modal Crear Proyecto -->
+  <ng-template #pro let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Agregar Proyecto</h4>
+        <button  class="btn-close" aria-label="Close" (click)="d('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+        <form #f2="ngForm" (ngSubmit)="onSubmit2(f2)" novalidate> 
+            <div class="form-group">
+                <label for="titulo">Titulo:</label>
+                <div class="input-group">
+                    <input id="titulo" name="titulo" class="form-control" #titulo="ngModel" ngModel/>
                 </div>
             </div>
-            <p class="card-text">Espacio para otro proyecto</p>
+            <div class="form-group">
+                <label for="contenido">Descripcion:</label>
+                <div class="input-group">
+                    <input id="contenido" type="text" name="contenido" class="form-control" #titulo="ngModel" ngModel/>
+                </div>
+            </div>
+            <div class="form-group">
+              <label for="link">Link:</label>
+              <div class="input-group">
+                  <input id="link" type="link" name="link" class="form-control" #titulo="ngModel" ngModel/>
+              </div>
           </div>
-          <div class="card-body">
-            <a href="#" class="card-link">Card link</a>
-            <a href="#" class="card-link">Another link</a>
-          </div>
+            <div class="form-group">
+                <label for="logo">logo</label>
+                <div class="input-group">
+                  <input 
+                  type="file" 
+                  alife-file-to-base64 (onFileChanged)="obtenerImg($event)" 
+                  id="logo" 
+                  name="logo" 
+                  class="form-control" 
+                  #logo="ngModel"
+                  ngModel required>
+                  <img src="{{base64}}" height="100px"> 
+                </div>
+            </div>
+            
+            <br>
+
+            <div class="modal-footer">
+                <button type="submit"  [disabled]="f2.invalid" class="btn btn-outline-dark" (click)="c('Save click')">Agregar</button>
+            </div>
+        </form>
+    </div>
+</ng-template>
+
+  <!-- Modal Editar Habilidad -->
+  <ng-template #proEdit let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title2">Editar Habilidad</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <!-- <span aria-hidden="true">&times;</span> -->
+        </button>
       </div>
-    </div>
-    </div>
-    </section>
+      <div class="modal-body">
+        <form [formGroup]="proyectForm" novalidate>
+          <div class="form-group">
+            <label for="titulo">Titulo:</label>
+            <div class="input-group">
+              <input name="titulo" formControlName="titulo" class="form-control">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="contenido">Descripcion:</label>
+            <div class="input-group">
+                <input name="contenido" type="text" formControlName="contenido" class="form-control"/>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="link">Link:</label>
+            <div class="input-group">
+                <input name="link" type="text" formControlName="link" class="form-control"/>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="logo">Logo:</label>
+            <div class="input-group">
+              <input type="file" 
+              alife-file-to-base64 (onFileChanged)="obtenerImg($event)" 
+              name="logo"
+              class="form-control">
+              <img src="{{this.proyectForm.value.logo}}" height="100px">
+            </div>
+          </div>
+        </form>
+    
+    
+        <div class="modal-footer">
+          <button data-dismiss="modal" class="btn btn-primary" (click)="actualizarProyecto()">Actualizar</button>
+          <button type="button" class="btn btn-danger" (click)="modal.close('Save click')">Cerrar</button>
+        </div>
+      </div>
+  </ng-template>
+
+</section>
     <hr class="text-light">

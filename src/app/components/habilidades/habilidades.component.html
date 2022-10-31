@@ -74,7 +74,7 @@
             </button>
         </div>
         <div class="modal-body">
-            <form [formGroup]="editForm" novalidate>
+            <form [formGroup]="headForm" novalidate>
                 <div class="form-group">
                     <label for="contenido">Contenido:</label>
                     <div class="input-group">
@@ -94,7 +94,7 @@
 <!-- CARDS CARDS CARDS CARDS -->
     <div *ngFor="let habilidad of habilidades" >     
 
-        <div *ngIf=" habilidad.tipo === 'front' " class="row"> 
+        <div *ngIf=" habilidad.tipo === 'front'|| 'soft' " class="row"> 
             <div class="col-lg-4 mt-4" >
                 <div class="d-flex justify-content-between">
                     <h2>{{habilidad.tipo}}</h2> 
@@ -103,7 +103,7 @@
                 <div class="d-flex justify-content-between">
                     <h5><i >{{habilidad.logo}}</i> {{habilidad.titulo}} </h5>
                     <div class="buttons">
-                        <button type="button" class="btn btn-dark"><i class="bi bi-pencil-square" style="font-size: 1rem; color: #0D6EFD;"></i></button>
+                        <button (click)="editarHab(habEdit, habilidad)" type="button" class="btn btn-dark"><i class="bi bi-pencil-square" style="font-size: 1rem; color: #0D6EFD;"></i></button>
                         <button type="button" class="btn btn-dark"><i class="bi bi-trash" style="font-size: 1rem; color: #0D6EFD;"></i></button>
                     </div>
                 </div>   
@@ -170,9 +170,17 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="logo">Logo:</label>
+                    <label for="logo">logo</label>
                     <div class="input-group">
-                        <input id="logo" name="logo" class="form-control" #titulo="ngModel" ngModel/>
+                      <input 
+                      type="file" 
+                      alife-file-to-base64 (onFileChanged)="obtenerImg($event)" 
+                      id="logo" 
+                      name="logo" 
+                      class="form-control" 
+                      #logo="ngModel"
+                      ngModel required>
+                      <img src="{{base64}}" height="100px"> 
                     </div>
                 </div>
                 
@@ -184,3 +192,45 @@
             </form>
         </div>
     </ng-template>
+
+    <!-- Modal Editar Habilidad -->
+  <ng-template #habEdit let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title2">Editar Habilidad</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <!-- <span aria-hidden="true">&times;</span> -->
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="habilityForm" novalidate>
+          <div class="form-group">
+            <label for="titulo">Titulo:</label>
+            <div class="input-group">
+              <input name="titulo" formControlName="titulo" class="form-control">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="porcentaje">Porcentaje %:</label>
+            <div class="input-group">
+                <input name="porcentaje" type="number" formControlName="porcentaje" class="form-control"/>
+            </div>
+        </div>
+          <div class="form-group">
+            <label for="logo">Logo:</label>
+            <div class="input-group">
+              <input type="file" 
+              alife-file-to-base64 (onFileChanged)="obtenerImg($event)" 
+              name="logo"
+              class="form-control">
+              <img src="{{this.habilityForm.value.logo}}" height="100px">
+            </div>
+          </div>
+        </form>
+    
+    
+        <div class="modal-footer">
+          <button data-dismiss="modal" class="btn btn-primary" (click)="actualizarHabilidad()">Actualizar</button>
+          <button type="button" class="btn btn-danger" (click)="modal.close('Save click')">Cerrar</button>
+        </div>
+      </div>
+  </ng-template>

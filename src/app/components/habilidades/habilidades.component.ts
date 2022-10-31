@@ -20,8 +20,9 @@ export class HabilidadesComponent implements OnInit {
   public header: Headers[];
 
   closeResult: string;
-  editForm: FormGroup;
+  headForm: FormGroup;
   habilityForm: FormGroup;
+  base64:String;
 
   public roles: string[];
   public isAdmin = false;
@@ -44,7 +45,7 @@ export class HabilidadesComponent implements OnInit {
     this.getFilteredHeaders()
     this.getHabilidades();
     
-    this.editForm = this.fb.group({
+    this.headForm = this.fb.group({
       id: [''],
       tipo: [''],
       contenido: [''],
@@ -83,6 +84,11 @@ export class HabilidadesComponent implements OnInit {
     });
   }
 
+  public obtenerImg(e:any): void {     
+    this.base64 = e[0].base64; 
+    this.habilityForm.value.logo=this.base64;  
+  }
+
   public crearHab(hab){
     this.modalService.open(hab, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
@@ -97,7 +103,7 @@ export class HabilidadesComponent implements OnInit {
       backdrop: 'static',
       size: 'lg'
     });
-    this.editForm.patchValue( {
+    this.habilityForm.patchValue( {
       id: habilidad.id,
       tipo: habilidad.tipo,
       titulo: habilidad.titulo,
@@ -132,7 +138,7 @@ export class HabilidadesComponent implements OnInit {
       backdrop: 'static',
       size: 'lg'
     });
-    this.editForm.patchValue( {
+    this.headForm.patchValue( {
       id: header.id,
       tipo: header.tipo,
       contenido: header.contenido,
@@ -152,7 +158,16 @@ export class HabilidadesComponent implements OnInit {
    }
 
   actualizarHeader() {
-    this.headersService.updateHeaders(this.editForm.value)
+    this.headersService.updateHeaders(this.headForm.value)
+      .subscribe((results) => {
+        this.ngOnInit();
+        this.modalService.dismissAll();
+        console.log(results)
+      });
+  }
+
+  actualizarHabilidad() {
+    this.habilidadesService.updateHabilidades(this.habilityForm.value)
       .subscribe((results) => {
         this.ngOnInit();
         this.modalService.dismissAll();
@@ -172,9 +187,9 @@ export class HabilidadesComponent implements OnInit {
   }
 
   onSubmit2(f2: NgForm) {
+    f2.form.value.logo=this.base64;;
     console.log(f2.form.value);
-
-    this.habilidadesService.createHabilidades( f2.value)
+    this.habilidadesService.createHabilidades(f2.value)
       .subscribe((result) => {
         this.ngOnInit(); // reload the table
       });
