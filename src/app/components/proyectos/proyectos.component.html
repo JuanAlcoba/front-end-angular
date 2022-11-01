@@ -34,14 +34,14 @@
     <div class="row justify-content-center">
       <div *ngFor="let proyecto of proyectos"id="project-cards" class="col project-cards">
         <div class="card bg-dark border" style="width: 20rem;">
-            <img src="assets\proyecto1.png" class="card-img-top" alt="...">
+          <img class="img img-fluid" src="{{proyecto.imagen}}"  accept="image/*">
             <hr>
             <div class="card-body">
               <div class="item-title d-flex justify-content-between">
                 <h5 class="card-title">{{proyecto.titulo}}</h5>
                 <div class="buttons">
                     <button (click)="editarPro(proEdit, proyecto)" type="button" class="btn btn-dark"><i class="bi bi-pencil-square" style="font-size: 1rem; color: #0D6EFD;"></i></button>
-                    <button type="button" class="btn btn-dark"><i class="bi bi-trash" style="font-size: 1rem; color: #0D6EFD;"></i></button>
+                    <button (click)=" eliminarPro(proyecto)" type="button" class="btn btn-dark"><i class="bi bi-trash" style="font-size: 1rem; color: #0D6EFD;"></i></button>
                   </div>
               </div>
               <p class="card-text">{{proyecto.contenido}}</p>
@@ -150,7 +150,7 @@
                   name="logo" 
                   class="form-control" 
                   #logo="ngModel"
-                  ngModel required>
+                  ngModel>
                   <img src="{{base64}}" height="100px"> 
                 </div>
             </div>

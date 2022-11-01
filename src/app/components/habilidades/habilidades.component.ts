@@ -119,7 +119,7 @@ export class HabilidadesComponent implements OnInit {
         p !== habilidad;
         console.log(p);
       });
-      alert("Experiencia eliminada Correctamente!");
+      alert("Habilidad eliminada Correctamente!");
       this.ngOnInit();
     });
   }

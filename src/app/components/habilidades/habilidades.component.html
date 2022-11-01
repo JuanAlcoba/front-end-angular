@@ -101,10 +101,11 @@
                     <button (click)="crearHab(hab)" type="button" class="btn btn-dark"><i class="bi bi-plus-circle" style="font-size: 1rem; color: #0D6EFD;"></i></button>
                     </div>
                 <div class="d-flex justify-content-between">
-                    <h5><i >{{habilidad.logo}}</i> {{habilidad.titulo}} </h5>
+                    <img class="img img-fluid" src="{{habilidad.logo}}"  accept="image/*">
+                    <h5> {{habilidad.titulo}} </h5>
                     <div class="buttons">
                         <button (click)="editarHab(habEdit, habilidad)" type="button" class="btn btn-dark"><i class="bi bi-pencil-square" style="font-size: 1rem; color: #0D6EFD;"></i></button>
-                        <button type="button" class="btn btn-dark"><i class="bi bi-trash" style="font-size: 1rem; color: #0D6EFD;"></i></button>
+                        <button (click)="eliminarHab(habilidad)" type="button" class="btn btn-dark"><i class="bi bi-trash" style="font-size: 1rem; color: #0D6EFD;"></i></button>
                     </div>
                 </div>   
                 <div class="progress">
@@ -119,7 +120,7 @@
                     <button (click)="crearHab(hab)" type="button" class="btn btn-dark"><i class="bi bi-plus-circle" style="font-size: 1rem; color: #0D6EFD;"></i></button>
                     </div>
                 <div class="d-flex justify-content-between">
-                    <h5><i >{{habilidad.logo}}</i> {{habilidad.titulo}} </h5>
+                    <img src="{{habilidad.logo}}" height="100px"> 
                     <div class="buttons">
                         <button type="button" class="btn btn-dark"><i class="bi bi-pencil-square" style="font-size: 1rem; color: #0D6EFD;"></i></button>
                         <button type="button" class="btn btn-dark"><i class="bi bi-trash" style="font-size: 1rem; color: #0D6EFD;"></i></button>
@@ -179,7 +180,7 @@
                       name="logo" 
                       class="form-control" 
                       #logo="ngModel"
-                      ngModel required>
+                      ngModel>
                       <img src="{{base64}}" height="100px"> 
                     </div>
                 </div>

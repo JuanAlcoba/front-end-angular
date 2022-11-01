@@ -112,7 +112,7 @@ export class ProyectosComponent implements OnInit {
         p !== proyecto;
         console.log(p);
       });
-      alert("Experiencia eliminada Correctamente!");
+      alert("Proyecto eliminado Correctamente!");
       this.ngOnInit();
     });
   }
