@@ -7,26 +7,28 @@ import { Persona } from '../model/persona.model';
   providedIn: 'root'
 })
 export class PersonaService {
-  URL = 'https://portfolioapp-argprograma.herokuapp.com/personas/';
+  URL = '/personas/';
 
   constructor(private http: HttpClient) { }
 
-  public getPersona(): Observable<Persona[]>{
-    return this.http.get<Persona[]>(this.URL+'traer')
-    }
+  public getPersona(): Observable<Persona[]> {
+    return this.http.get<Persona[]>(this.URL + 'traer');
+  }
 
-    public  getPersonaId(id:any):Observable<Persona>{
-      return this.http.get<Persona>(this.URL+"traer/"+id);
-    }
-  // public getPersona(): Observable<Persona>{
-  //   return this.http.get<Persona>(this.URL+'traer');
-  // }
+  public createPersona(persona:Persona) {
+    return this.http.post<Persona>(this.URL + 'crear', persona);
+  }
 
-  // public  getPersonaId(id:number):Observable<Persona>{
-  //   return this.http.get<Persona>(this.URL+"traer/"+id);
-  // }
+  public getPersonaId(id:any) {
+    return this.http.get<Persona>(this.URL+"traer/"+id);
+  }
 
-  public updatePersona(persona: Persona) {
+  public updatePersona(persona:Persona) {
     return this.http.put<Persona>(this.URL+"editar/"+persona.id,persona)
   }
+
+  public deletePersona(persona: Persona) {
+    return this.http.delete<Persona>(this.URL + 'eliminar/' +persona.id);
+  }
+
 }

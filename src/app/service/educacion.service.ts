@@ -9,7 +9,7 @@ import { Educacion } from '../model/educacion.model';
 })
 export class EducacionService {
 
-  URL = 'https://portfolioapp-argprograma.herokuapp.com/educacion/';
+  URL = '/educacion/';
 
   constructor(private http: HttpClient) { }
 

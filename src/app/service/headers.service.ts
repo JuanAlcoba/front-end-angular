@@ -8,7 +8,7 @@ import { Headers } from '../model/headers.model';
 })
 export class HeadersService {
 
-  URL = 'https://portfolioapp-argprograma.herokuapp.com/headers/';
+  URL = '/headers/';
 
   constructor(private http: HttpClient) { }
 
