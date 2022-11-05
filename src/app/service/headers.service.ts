@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { Headers } from '../model/headers.model';
 
 @Injectable({
@@ -8,7 +9,7 @@ import { Headers } from '../model/headers.model';
 })
 export class HeadersService {
 
-  URL = '/headers/';
+  URL = environment.env + '/headers/';
 
   constructor(private http: HttpClient) { }
 
