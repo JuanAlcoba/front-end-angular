@@ -23,6 +23,7 @@ export class HabilidadesComponent implements OnInit {
   headForm: FormGroup;
   habilityForm: FormGroup;
   base64:String;
+  progressValue:Number;
 
   public roles: string[];
   public isAdmin = false;
