@@ -18,7 +18,7 @@ export class NavComponent implements OnInit {
   ngOnInit(): void {
     this.getPersona();
     if(this.tokenService.getToken()){
-      this.isLogged =  true; 
+      this.isLogged = true; 
     } else {
       this.isLogged=false;
     }
@@ -34,8 +34,7 @@ export class NavComponent implements OnInit {
 
   onLogOut(): void {
     this.tokenService.logOut();
-    this.router.navigate(['/']);
-    // window.location.reload();
+    window.location.reload();
   }
 
 }

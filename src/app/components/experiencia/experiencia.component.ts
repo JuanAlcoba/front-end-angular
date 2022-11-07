@@ -25,7 +25,7 @@ export class ExperienciaComponent implements OnInit {
 
   public roles: string[];
   public isAdmin = false;
-
+  
   
   constructor(
     config: NgbModalConfig,

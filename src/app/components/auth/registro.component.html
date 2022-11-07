@@ -2,11 +2,11 @@
 
 <div class="container mt-5">
 
-    <div class="text-center text-light" *ngIf="isLogged; else loggedOut">
+    <div class="text-center text-light" *ngIf="isLogged">
         <h2>Ya haz Iniciado sesión</h2>
     </div>
 
-    <ng-template #loggedOut>
+    <ng-template *ngIf="!isLogged">
         <div class="container d-flex justify-content-center">
             <div class="card">
                 <div class="card-header"></div>

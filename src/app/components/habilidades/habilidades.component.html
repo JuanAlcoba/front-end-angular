@@ -4,7 +4,7 @@
         <div class="col">
             <div class="section-title mb-4 d-flex justify-content-between"> 
                 <h2> Habilidades </h2>
-                <div class="buttons">
+                <div *ngIf="isAdmin" class="buttons">
                     <button (click)="crearHab(hab)" type="button" class="btn btn-dark"><i class="bi bi-plus-circle" style="font-size: 1rem; color: #0D6EFD;"></i></button>
                 </div>
             </div>
@@ -14,7 +14,7 @@
         <div *ngFor="let item of header" class="item-title d-flex justify-content-between">
             <p> {{item.contenido}}
             </p>
-            <div class="buttons">
+            <div *ngIf="isAdmin" class="buttons">
                 <button (click)="editarHeader(contentEdit, item)" type="button" class="btn btn-dark"><i class="bi bi-pencil-square" style="font-size: 1rem; color: #0D6EFD;"></i></button>
                 <button (click)="eliminarHeader(item)" class="btn btn-dark"><i class="bi bi-trash" style="font-size: 1rem; color: #0D6EFD;"></i></button>
             </div>
@@ -23,7 +23,7 @@
     <ng-template #other_content>
         <div class="item-title d-flex justify-content-between">
             <p> Inserte aquí un header propicio para esta sección </p>
-            <div class="buttons">
+            <div *ngIf="isAdmin" class="buttons">
                 <button (click)="crearHeader(content)" type="button" class="btn btn-dark"><i class="bi bi-plus-circle" style="font-size: 1rem; color: #0D6EFD;"></i></button>
             </div>
         </div>
@@ -34,14 +34,14 @@
         <div class="col-lg-4 mt-4" >
             <div  class="d-flex justify-content-between">
                 <h2>Front End</h2> 
-                <button (click)="crearHab(hab)" type="button" class="btn btn-dark"><i class="bi bi-plus-circle" style="font-size: 1rem; color: #0D6EFD;"></i></button>
+                <button *ngIf="isAdmin" (click)="crearHab(hab)" type="button" class="btn btn-dark"><i class="bi bi-plus-circle" style="font-size: 1rem; color: #0D6EFD;"></i></button>
             </div>
             <div *ngFor="let habilidad of habilidades"  >
                 <div *ngIf=" habilidad.tipo === 'front'">
-                    <div class="d-flex justify-content-between">
+                    <div class="d-flex justify-content-start">
                         <img class="img img-fluid" src="{{habilidad.logo}}"  accept="image/*">
-                        <h5> {{habilidad.titulo}} </h5>
-                        <div class="buttons">
+                        <h5 class="ps-4"> {{habilidad.titulo}} </h5>
+                        <div *ngIf="isAdmin" class="item-buttons">
                             <button (click)="editarHab(habEdit, habilidad)" type="button" class="btn btn-dark"><i class="bi bi-pencil-square" style="font-size: 1rem; color: #0D6EFD;"></i></button>
                             <button (click)="eliminarHab(habilidad)" type="button" class="btn btn-dark"><i class="bi bi-trash" style="font-size: 1rem; color: #0D6EFD;"></i></button>
                         </div>
@@ -53,14 +53,14 @@
         <div class="col-lg-4 mt-4" >
             <div  class="d-flex justify-content-between">
                 <h2>Back End</h2> 
-                <button (click)="crearHab(hab)" type="button" class="btn btn-dark"><i class="bi bi-plus-circle" style="font-size: 1rem; color: #0D6EFD;"></i></button>
+                <button *ngIf="isAdmin" (click)="crearHab(hab)" type="button" class="btn btn-dark"><i class="bi bi-plus-circle" style="font-size: 1rem; color: #0D6EFD;"></i></button>
             </div>
             <div *ngFor="let habilidad of habilidades"  >
                 <div *ngIf=" habilidad.tipo === 'back'">
-                    <div class="d-flex justify-content-between">
+                    <div class="d-flex justify-content-start">
                         <img class="img img-fluid" src="{{habilidad.logo}}"  accept="image/*">
-                        <h5> {{habilidad.titulo}} </h5>
-                        <div class="buttons">
+                        <h5 class="ps-4"> {{habilidad.titulo}} </h5>
+                        <div *ngIf="isAdmin" class="item-buttons">
                             <button (click)="editarHab(habEdit, habilidad)" type="button" class="btn btn-dark"><i class="bi bi-pencil-square" style="font-size: 1rem; color: #0D6EFD;"></i></button>
                             <button (click)="eliminarHab(habilidad)" type="button" class="btn btn-dark"><i class="bi bi-trash" style="font-size: 1rem; color: #0D6EFD;"></i></button>
                         </div>
@@ -72,14 +72,14 @@
         <div class="col-lg-4 mt-4" >
             <div  class="d-flex justify-content-between">
                 <h2>Soft Skills</h2> 
-                <button (click)="crearHab(hab)" type="button" class="btn btn-dark"><i class="bi bi-plus-circle" style="font-size: 1rem; color: #0D6EFD;"></i></button>
+                <button *ngIf="isAdmin" (click)="crearHab(hab)" type="button" class="btn btn-dark"><i class="bi bi-plus-circle" style="font-size: 1rem; color: #0D6EFD;"></i></button>
             </div>
             <div *ngFor="let habilidad of habilidades"  >
                 <div *ngIf=" habilidad.tipo === 'soft'">
-                    <div class="d-flex justify-content-between">
+                    <div class="d-flex justify-content-start">
                         <img class="img img-fluid" src="{{habilidad.logo}}"  accept="image/*">
-                        <h5> {{habilidad.titulo}} </h5>
-                        <div class="buttons">
+                        <h5 class="ps-4"> {{habilidad.titulo}} </h5>
+                        <div *ngIf="isAdmin" class="item-buttons">
                             <button (click)="editarHab(habEdit, habilidad)" type="button" class="btn btn-dark"><i class="bi bi-pencil-square" style="font-size: 1rem; color: #0D6EFD;"></i></button>
                             <button (click)="eliminarHab(habilidad)" type="button" class="btn btn-dark"><i class="bi bi-trash" style="font-size: 1rem; color: #0D6EFD;"></i></button>
                         </div>

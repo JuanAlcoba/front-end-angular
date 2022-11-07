@@ -27,7 +27,13 @@
           <div class="item-title d-flex justify-content-between"> 
             <h2> Sobre mí </h2>
             <div class="buttons">
-              <button (click)="Editar(persona)" type="button" class="btn btn-dark"><i class="bi bi-pencil-square" style="font-size: 1rem; color: #0D6EFD;"></i></button>
+              <button
+              *ngIf="isAdmin" 
+               (click)="Editar(persona)"
+               type="button" 
+               class="btn btn-dark">
+                 <i class="bi bi-pencil-square" style="font-size: 1rem; color: #0D6EFD;"></i>
+              </button>
             </div>
             </div>
             <div class="text"> {{persona.acerca}} </div>

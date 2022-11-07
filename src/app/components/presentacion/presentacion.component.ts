@@ -11,8 +11,9 @@ import { TokenService } from 'src/app/service/token.service';
 })
 export class PresentacionComponent implements OnInit {
 
-  persona:any;
-
+  public persona:any;
+  public roles: string[];
+  public isAdmin = false;
   // persona: Persona = new Persona("","","","","","",);
 
   constructor(
@@ -23,6 +24,12 @@ export class PresentacionComponent implements OnInit {
 
   ngOnInit(): void {
     this.getPersona();
+    this.roles= this.tokenService.getAuthorities();
+    this.roles.forEach( rol => {
+      if(rol === 'ROLE_ADMIN'){
+        this.isAdmin= true;
+      }
+    })
   }
 
 

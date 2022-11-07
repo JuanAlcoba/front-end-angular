@@ -5,7 +5,7 @@
       <div class="col">
           <div class="section-title mb-4 d-flex justify-content-between">
               <h2> Experiencia </h2>
-              <div class="buttons">
+              <div *ngIf="isAdmin" class="buttons">
                   <button (click)="crearExp()" type="button" class="btn btn-dark"><i class="bi bi-plus-circle" style="font-size: 1rem; color: #0D6EFD;"></i></button>
               </div>
           </div>
@@ -15,7 +15,7 @@
           <div *ngFor="let item of header" class="item-title d-flex justify-content-between">
               <p> {{item.contenido}}
               </p>
-              <div class="buttons">
+              <div *ngIf="isAdmin"  class="buttons">
                   <button (click)="editarHeader(contentEdit, item)" type="button" class="btn btn-dark"><i class="bi bi-pencil-square" style="font-size: 1rem; color: #0D6EFD;"></i></button>
                   <button (click)="eliminarHeader(item)" class="btn btn-dark"><i class="bi bi-trash" style="font-size: 1rem; color: #0D6EFD;"></i></button>
               </div>
@@ -25,7 +25,13 @@
         <div class="item-title d-flex justify-content-between">
             <p> Inserte aquí un header propicio para esta sección </p>
             <div class="buttons">
-                <button (click)="cearHeader(content)" type="button" class="btn btn-dark"><i class="bi bi-plus-circle" style="font-size: 1rem; color: #0D6EFD;"></i></button>
+                <button
+                *ngIf="isAdmin" 
+                (click)="cearHeader(content)" 
+                type="button" 
+                class="btn btn-dark">
+                  <i class="bi bi-plus-circle" style="font-size: 1rem; color: #0D6EFD;"></i>
+                </button>
             </div>
         </div>
       </ng-template>
