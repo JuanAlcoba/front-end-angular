@@ -19,7 +19,7 @@ Este proyecto fue mi primer proyecto que realice en programación, se trata de u
 - <b>Uso de modales</b> 
 - <b>Validacion de formularios</b> 
 - <b>Sweet Alerts</b> (Notifiaciones en el agregado y edicion de los diferentes modulos)
-- <b>variables de entorno para poder separar facilmente ambientes de desarrollo/producción</b> 
+- <b>Variables de entorno</b> (para poder separar facilmente ambientes de desarrollo/producción)
 
 
 <h2>Herramientas utilizadas en el desarrollo</h2>
@@ -28,6 +28,6 @@ Este proyecto fue mi primer proyecto que realice en programación, se trata de u
 - <b>Angular + Bootstrap + NgBootstrap</b> 
 
 ## Importante
-
-- <b>URL de producción:</b> <a href="https://portfolioapp-57eda.web.app" target="_blank"> Link</a>
+- <b>El back-end fue subido a <a href="https://render.com" target="_blank">Render</a>, base de datos en <a href="https://www.clever-cloud.com" target="_blank">Clever Cloud</a> </b> 
+- <b>Deploy de front-end en firebase:</b> <a href="https://portfolioapp-57eda.web.app" target="_blank"> Link</a>
 - <b>Contacto:</b> <a href="mailto:jc.alcoba@gmail.com" target="_blank"> Mail</a>,<a href="https://www.linkedin.com/in/juan-alcoba-91964a213/" target="_blank"> Linkedin</a>
