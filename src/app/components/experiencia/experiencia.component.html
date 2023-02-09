@@ -93,6 +93,7 @@
 
   <!-- Modal Editar Header -->
   <ng-template #contentEdit let-modal>
+  <div class="bg-dark text-light">
     <div class="modal-header">
       <h4 class="modal-title" id="modal-basic-title2">Editar Header</h4>
       <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')">
@@ -114,4 +115,5 @@
         <button type="button" class="btn btn-danger" (click)="modal.close('Save click')">Cerrar</button>
       </div>
     </div>
+  </div>
   </ng-template>
